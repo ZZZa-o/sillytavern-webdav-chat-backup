@@ -150,7 +150,7 @@ function buildPanel() {
                         <div id="wdcb-backup-meta" class="wdcb-meta"></div>
                     </section>
 
-                    <section class="wdcb-section">
+                    <section class="wdcb-section wdcb-section-auto">
                         <div class="wdcb-section-title">自动备份</div>
                         <div class="wdcb-auto-row">
                             <label class="checkbox_label"><input id="wdcb-auto-enabled" type="checkbox" ${s.autoEnabled ? 'checked' : ''}><span>启用</span></label>

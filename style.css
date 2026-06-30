@@ -11,7 +11,7 @@
 }
 
 .wdcb-shell .inline-drawer-content {
-    padding: 5px 8px 6px;
+    padding: 5px 8px 0;
 }
 
 .wdcb-shell .inline-drawer-header b {
@@ -217,7 +217,14 @@
 }
 
 .wdcb-auto-row {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    margin: 0;
+}
+
+.wdcb-section-auto {
+    align-items: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .wdcb-status {
