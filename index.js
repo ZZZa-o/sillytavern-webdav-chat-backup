@@ -81,6 +81,7 @@ function prettyBytes(size) {
 
 function buildPanel() {
     const s = getSettings();
+    const lastStatus = String(s.lastStatus || '').trim();
     const html = `
         <div id="wdcb-root" class="wdcb-shell">
             <div class="inline-drawer">
@@ -167,7 +168,7 @@ function buildPanel() {
                         </div>
                     </section>
 
-                    <div id="wdcb-status" class="wdcb-status ${s.lastStatus ? 'is-info' : ''}">${escHtml(s.lastStatus || '')}</div>
+                    <div id="wdcb-status" class="wdcb-status ${lastStatus ? 'is-info' : ''}">${escHtml(lastStatus)}</div>
                 </div>
             </div>
         </div>
@@ -212,13 +213,16 @@ function getPayloadSettings() {
 }
 
 function setStatus(message, type = 'info') {
+    const text = String(message || '').trim();
     const s = getSettings();
-    s.lastStatus = message || '';
+    s.lastStatus = text;
     saveSettingsDebounced();
-    $('#wdcb-status')
+    const status = $('#wdcb-status')
         .removeClass('is-info is-ok is-warn is-error')
-        .addClass(`is-${type}`)
-        .text(message || '');
+        .text(text);
+    if (text) {
+        status.addClass(`is-${type}`);
+    }
 }
 
 function setBusy(value) {

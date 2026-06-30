@@ -192,11 +192,16 @@
 
 .wdcb-meta {
     flex: 1 1 100%;
-    min-height: 12px;
+    display: none;
+    min-height: 0;
     margin-top: 0;
     font-size: 11px;
     color: var(--wdcb-muted);
     overflow-wrap: anywhere;
+}
+
+.wdcb-meta:not(:empty) {
+    display: block;
 }
 
 .wdcb-inline-field {
@@ -209,6 +214,10 @@
 .wdcb-inline-field input {
     width: 54px;
     text-align: center;
+}
+
+.wdcb-auto-row {
+    flex: 1 1 auto;
 }
 
 .wdcb-status {
@@ -224,8 +233,14 @@
     line-height: 1.15;
 }
 
+.wdcb-meta:empty,
 .wdcb-status:empty {
-    display: none;
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
 }
 
 .wdcb-status.is-ok {
